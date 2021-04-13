@@ -26,7 +26,7 @@ public class HomePageTest {
         capabilities.setBrowserName("firefox");
         capabilities.setVersion("86.0");
         capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", false);
+        capabilities.setCapability("enableVideo", true);
 
         driver = new RemoteWebDriver(URI.create("http://localhost:4444/wd/hub").toURL(),
                 capabilities);
