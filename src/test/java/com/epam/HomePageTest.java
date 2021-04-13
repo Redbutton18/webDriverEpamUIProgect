@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,8 @@ public class HomePageTest {
 
     public String baseUrl = "https://epam.com/";
     public WebDriver driver;
+    WebElement message = driver.findElement(By.className("title-slider__slide-row"));
+
 
     @BeforeMethod
     public void setUp() throws MalformedURLException {
@@ -34,8 +37,17 @@ public class HomePageTest {
     @Test
     public void visitHomePage() {
         driver.get(baseUrl);
-        WebElement message = driver.findElement(By.className("title-slider__slide-row"));
         Assert.assertTrue(message.isDisplayed());
+    }
+
+    @Test
+    public void checkTitleMessage() {
+        driver.get(baseUrl);
+        Assert.assertEquals(message.getText(), "Engineering the Future");
+    }
+
+    @AfterMethod
+    public void close() {
         driver.close();
     }
 }
