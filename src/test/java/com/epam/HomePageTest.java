@@ -40,11 +40,11 @@ public class HomePageTest {
         Assert.assertTrue(message.isDisplayed());
     }
 
-    @Test
-    public void checkTitleMessage() {
-        driver.get(baseUrl);
-        Assert.assertEquals(message.getText(), "Engineering the Future");
-    }
+//    @Test
+//    public void checkTitleMessage() {
+//        driver.get(baseUrl);
+//        Assert.assertEquals(message.getText(), "Engineering the Future");
+//    }
 
     @AfterMethod
     public void close() {
