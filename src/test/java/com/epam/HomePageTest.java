@@ -18,7 +18,6 @@ public class HomePageTest {
 
     public String baseUrl = "https://epam.com/";
     public WebDriver driver;
-    WebElement message = driver.findElement(By.className("title-slider__slide-row"));
 
 
     @BeforeMethod
@@ -37,14 +36,16 @@ public class HomePageTest {
     @Test
     public void visitHomePage() {
         driver.get(baseUrl);
+        WebElement message = driver.findElement(By.className("title-slider__slide-row"));
         Assert.assertTrue(message.isDisplayed());
     }
 
-//    @Test
-//    public void checkTitleMessage() {
-//        driver.get(baseUrl);
-//        Assert.assertEquals(message.getText(), "Engineering the Future");
-//    }
+    @Test
+    public void checkTitleMessage() {
+        driver.get(baseUrl);
+        WebElement message = driver.findElement(By.className("title-slider__slide-row"));
+        Assert.assertEquals(message.getText(), "Engineering the Future");
+    }
 
     @AfterMethod
     public void close() {
